@@ -2,6 +2,8 @@ package branca
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 var (
@@ -168,5 +170,17 @@ func TestInvalidDecodeString(t *testing.T) {
 		if err == nil {
 			t.Errorf("%q", err)
 		}
+	}
+}
+
+func BenchmarkEncodeDecodeToString(t *testing.B) {
+	b := NewBranca("R2K1PorqruFhlPxUK2gl82ghcK1i3IfD")
+	require.NotNil(t, b)
+	testData := "Test Data Text"
+	for n := 0; n < t.N; n++ {
+		token, err := b.EncodeToString(testData)
+		require.NoError(t, err)
+		_, err = b.DecodeToString(token)
+		require.NoError(t, err)
 	}
 }

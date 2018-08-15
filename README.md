@@ -5,17 +5,17 @@
 
 branca is a secure alternative to JWT, This implementation is written in pure Go (no cgo dependencies) and implements the [branca token specification](https://github.com/tuupola/branca-spec).
 
-# Requirements
+## Requirements
 
 Go 1.5 and beyond.
 
-# Install
+## Install
 
 ```
 go get -u github.com/hako/branca
 ```
 
-# Example
+## Example
 
 ```go
 package main
@@ -48,7 +48,7 @@ func main() {
 }
 ```
 
-# Todo
+## Todo
 
 Here are a few things that need to be done:
 
@@ -57,10 +57,23 @@ Here are a few things that need to be done:
 - [x] Add more tests than just acceptance tests.
 - [x] Increase test coverage.
 - [ ] Additional Methods. (Encode, Decode []byte)
-- [ ] Performance benchmarks.
+- [x] Performance benchmarks.
 - [ ] More comments, examples and documentation.
 
-# Contributing
+## Benchmark
+
+Using MacBookPro - 2.9 GHz Intel Core i7 (2018-08-14)
+
+```bash
+goos: darwin
+goarch: amd64
+pkg: github.com/dwin/branca
+BenchmarkEncodeDecodeToString-8   	   20000	     63484 ns/op	   12107 B/op	      60 allocs/op
+PASS
+ok  	github.com/dwin/branca	1.938s
+```
+
+## Contributing
 
 Contributions are welcome! Fork this repo and add your changes and submit a PR.
 
@@ -68,6 +81,6 @@ If you would like to fix a bug, add a feature or provide feedback you can do so 
 
 You can run tests by runnning `go test`. Running `go test; go vet; golint` is recommended.
 
-# License
+## License
 
 MIT
